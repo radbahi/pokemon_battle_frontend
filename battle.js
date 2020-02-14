@@ -48,7 +48,6 @@ function handleSwitchOptions(attackingPlayer, defendingPlayer){
         const availablePokemon = attackingPlayer.notFainted().filter((pokemon, index) => {
             return index != attackingPlayer.activePokemonIndex
         })
-        console.log(availablePokemon)
         const optionsList = document.querySelector('#option-list')
         const pokemonList = document.createElement("ul")
         availablePokemon.forEach(pokemon => {
@@ -60,8 +59,16 @@ function handleSwitchOptions(attackingPlayer, defendingPlayer){
             })
             pokemonList.append(pokemonButton)
         })
-        
-        optionsList.innerHTML = `<h2>"Your Pokemon"</h2>`
+        const backButton = document.createElement("button")
+        backButton.innerText = `Back`
+        pokemonList.append(backButton)
+        backButton.addEventListener("click", () => {
+            const optionsList = document.querySelector("#option-list")
+            optionsList.remove()
+            renderOptions(attackingPlayer, defendingPlayer)
+            addListeners(attackingPlayer, defendingPlayer)
+        })
+        optionsList.innerHTML = `<h2>Your Pokemon</h2>`
         optionsList.append(pokemonList)
     }
 }
