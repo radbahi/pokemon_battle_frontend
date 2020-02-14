@@ -187,7 +187,12 @@ function runner(pokeData){
         `
         const addTeamButton = document.querySelector("#add-to-team")
         addTeamButton.addEventListener("click", () =>{
-            addPokemon(pokeInfo)
+            if (currentUser.pokemons.length >= 3){
+                alert("Max team length is 3.")
+            }
+            else{
+                addPokemon(pokeInfo)
+            }
         })
     }
     //create new pokemon and add to trainer's team

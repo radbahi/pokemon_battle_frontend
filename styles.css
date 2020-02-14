@@ -119,4 +119,23 @@ width: 50%
     }
 
 
-/*SELECT OPPONENT PAGE******************************* */
+/**RESIZE BATTLE***************************************/
+#battle-container > * > *{
+    transform: scale(2);
+}
+#battle-container > * > *{
+    transform: scale(2);
+    margin: 2.5%
+}
+#fight-message{
+    padding-left: 680px;
+    font-size: 40%;
+}
+
+.switch-button:first-of-type{
+    margin-left: 650px;
+}
+
+#your-message{
+    margin-left: 1000px;
+}

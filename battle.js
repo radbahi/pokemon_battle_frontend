@@ -21,7 +21,7 @@ function addListeners(attackingPlayer, defendingPlayer){
         if (defendingPlayer.activePokemon().fainted) {
             handleFaintEvent(attackingPlayer, defendingPlayer)
         }else {
-            optionsList.innerHTML = `<p>${attackingPlayer.activePokemon().name} uses ${attackingPlayer.activePokemon().moves[Math.floor(Math.random() * attackingPlayer.activePokemon().moves.length)]}! ${defendingPlayer.activePokemon().name} takes ${defendingPokemonHealth - defendingPlayer.activePokemon().health} damage!</p>`
+            optionsList.innerHTML = `<p id="fight-message">${attackingPlayer.activePokemon().name} uses ${attackingPlayer.activePokemon().moves[Math.floor(Math.random() * attackingPlayer.activePokemon().moves.length)]}! ${defendingPlayer.activePokemon().name} takes ${defendingPokemonHealth - defendingPlayer.activePokemon().health} damage!</p>`
             sleep(2000).then(()=> {
                 battle(defendingPlayer, attackingPlayer)
             })}
@@ -53,6 +53,7 @@ function handleSwitchOptions(attackingPlayer, defendingPlayer){
         availablePokemon.forEach(pokemon => {
             const pokemonButton = document.createElement("button")
             pokemonButton.innerText = `${pokemon.name}`
+            pokemonButton.className = "switch-button"
             pokemonButton.addEventListener("click", () => {
                 attackingPlayer.activePokemonIndex = attackingPlayer.pokemons.indexOf(pokemon)
                 battle(defendingPlayer, attackingPlayer)
@@ -61,6 +62,7 @@ function handleSwitchOptions(attackingPlayer, defendingPlayer){
         })
         const backButton = document.createElement("button")
         backButton.innerText = `Back`
+        backButton.clasName = "switch-button"
         pokemonList.append(backButton)
         backButton.addEventListener("click", () => {
             const optionsList = document.querySelector("#option-list")
@@ -68,7 +70,7 @@ function handleSwitchOptions(attackingPlayer, defendingPlayer){
             renderOptions(attackingPlayer, defendingPlayer)
             addListeners(attackingPlayer, defendingPlayer)
         })
-        optionsList.innerHTML = `<h2>Your Pokemon</h2>`
+        optionsList.innerHTML = `<h2 id = "your-message">Your Pokemon</h2>`
         optionsList.append(pokemonList)
     }
 }
