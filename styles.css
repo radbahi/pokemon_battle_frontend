@@ -120,7 +120,7 @@ width: 50%
 
 
 /**RESIZE BATTLE***************************************/
-#battle-container > * > *{
+/* #battle-container > * > *{
     transform: scale(2);
 }
 #battle-container > * > *{
@@ -138,4 +138,4 @@ width: 50%
 
 #your-message{
     margin-left: 1000px;
-}
+} */
