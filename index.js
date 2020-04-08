@@ -1,3 +1,5 @@
+import fetchOpponents from "./disOpp.js"
+
 document.addEventListener("DOMContentLoaded", () =>{
     const startGame = document.createElement("button");
     const mainBody = document.querySelector("#main-body")
