@@ -21,10 +21,10 @@ class Pokemon{
             this.fainted = true
         }
     }
-    //pokemon heals by amount. maximum 100
+    //pokemon heals by amount. maximum 50
     heal(amount){
-        if(this.health + amount > 100){
-            this.health = 100
+        if(this.health + amount > 50){
+            this.health = 50
         }
         else{
             this.health = this.health + amount

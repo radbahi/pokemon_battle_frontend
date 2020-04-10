@@ -15,6 +15,7 @@ function battle(attackingPlayer, defendingPlayer){
 function addListeners(attackingPlayer, defendingPlayer){
     const optionsList = document.querySelector('#option-list')
     const fightButton = document.querySelector("#fight")
+    //attack button
     fightButton.addEventListener('click', () => {
         const defendingPokemonHealth = defendingPlayer.activePokemon().health
         defendingPlayer.takeDamage(Math.floor(Math.random() * 20) + 1)
@@ -26,6 +27,7 @@ function addListeners(attackingPlayer, defendingPlayer){
                 battle(defendingPlayer, attackingPlayer)
             })}
     })
+    //heal button
     const healButton = document.querySelector("#heal")
     healButton.addEventListener("click", () => {
         const attackingPokemonHealth = attackingPlayer.activePokemon().health
@@ -34,6 +36,7 @@ function addListeners(attackingPlayer, defendingPlayer){
         sleep(2000).then(()=> {
             battle(defendingPlayer, attackingPlayer)
         })    })
+    //switch pokemon
     const changeButton = document.querySelector("#change")
     changeButton.addEventListener("click", () => {
         handleSwitchOptions(attackingPlayer, defendingPlayer)
@@ -74,7 +77,7 @@ function handleSwitchOptions(attackingPlayer, defendingPlayer){
         optionsList.append(pokemonList)
     }
 }
-
+//when a pokemon faints
 function handleFaintEvent (attackingPlayer, defendingPlayer) {
     if (defendingPlayer.notFainted().length > 0) {
         const nextPokemon = defendingPlayer.notFainted()[0]
@@ -83,8 +86,8 @@ function handleFaintEvent (attackingPlayer, defendingPlayer) {
     } else {
         endOfGame(attackingPlayer, defendingPlayer)
     }
-} // end of checkiFfAINTED FUNC
-
+} 
+//when one player runs out of pokemon
 function endOfGame(winningPlayer, losingPlayer) {
     const mainBody = document.querySelector('#main-body')
     mainBody.innerHTML = `<h1>${winningPlayer.name} has defeated ${losingPlayer.name}!</h1>

@@ -1,7 +1,7 @@
 /**GET DATA********************************************************************************** */
 //fetch list of all users and then render opoonents screen
 function fetchOpponents(currentUser){
-    fetch('https://pokemonbattle-api.herokuapp.com/users')
+    fetch(`${BASE_URL}/users`)
     .then((response) => {
         return response.json();
     })

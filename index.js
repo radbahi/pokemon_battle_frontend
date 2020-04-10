@@ -9,6 +9,7 @@ document.addEventListener("DOMContentLoaded", () =>{
     })
 
 })
+const BASE_URL = 'http://localhost:3000/'
 
 const theme = document.createElement("audio")
 theme.src = `theme.mp3`
@@ -77,7 +78,7 @@ function runner(pokeData){
     }
     //grab user data from backend
     function getUser(username){
-        fetch('https://pokemonbattle-api.herokuapp.com/users')
+        fetch(`${BASE_URL}/users`)
         .then((response) => {
             return response.json();
         })
@@ -95,7 +96,7 @@ function runner(pokeData){
     }
     //post to new user
     function createUser(nameInput){
-        fetch('https://pokemonbattle-api.herokuapp.com/users', {
+        fetch(`${BASE_URL}/users`, {
         method: 'POST', // or 'PUT'
         headers: {
             'Content-Type': 'application/json',
@@ -131,7 +132,7 @@ function runner(pokeData){
                 teamContainer.append(pokeSpan)
                 const deleteButton = document.querySelector(`#delete-${pokemon.id}`)
                 deleteButton.addEventListener("click", () => {
-                    fetch(`https://pokemonbattle-api.herokuapp.com/pokemons/${pokemon.id}`, {
+                    fetch(`${BASE_URL}/pokemons/${pokemon.id}`, {
                         method: 'delete'
                     }).then(response => response.json())
                     .then(data => {currentUser = getUser(currentUser.name)
@@ -198,7 +199,7 @@ function runner(pokeData){
     //create new pokemon and add to trainer's team
     function addPokemon(pokeInfo){
         
-        fetch('https://pokemonbattle-api.herokuapp.com/pokemons', {
+        fetch(`${BASE_URL}/pokemons`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
