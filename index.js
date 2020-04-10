@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", () =>{
     })
 
 })
-const BASE_URL = 'http://localhost:3000/'
+const BASE_URL = 'https://pokemonbattle-api.herokuapp.com'
 
 const theme = document.createElement("audio")
 theme.src = `theme.mp3`
@@ -112,7 +112,6 @@ function runner(pokeData){
     //render user info
     function renderUserInfo(){
         const userContainer = document.querySelector("#user-container")
-        console.log(currentUser)
         userContainer.innerHTML=`
             <h1>Logged in as: ${currentUser.name}</h1>
             <button id="logout">Logout</button>
@@ -198,7 +197,7 @@ function runner(pokeData){
     }
     //create new pokemon and add to trainer's team
     function addPokemon(pokeInfo){
-        
+        console.log(pokeInfo)
         fetch(`${BASE_URL}/pokemons`, {
             method: 'POST',
             headers: {

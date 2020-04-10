@@ -18,6 +18,7 @@ function addListeners(attackingPlayer, defendingPlayer){
     //attack button
     fightButton.addEventListener('click', () => {
         const defendingPokemonHealth = defendingPlayer.activePokemon().health
+        console.log(defendingPlayer.activePokemon())
         defendingPlayer.takeDamage(Math.floor(Math.random() * 20) + 1)
         if (defendingPlayer.activePokemon().fainted) {
             handleFaintEvent(attackingPlayer, defendingPlayer)
