@@ -7,9 +7,19 @@ function renderBattle(attackingPlayer, defendingPlayer){
         <div id="battle-container">
         </div>
     `
+    renderAttackingPlayer(attackingPlayer)
     renderDefendingPokemon(defendingPlayer)
     renderAttackingPokemon(attackingPlayer)
     renderOptions(attackingPlayer, defendingPlayer)
+}
+
+//redner name of player who's turn to attack
+function renderAttackingPlayer(player) {
+    const battleBody = document.querySelector('#battle-container')
+    const playerName = document.createElement('h2')
+    playerName.id = "player-name"
+    playerName.innerText = player.name
+    battleBody.append(playerName)
 }
 
 //render defending pokemon

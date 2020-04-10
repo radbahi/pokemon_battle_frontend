@@ -30,7 +30,7 @@ function addListeners(attackingPlayer, defendingPlayer){
     healButton.addEventListener("click", () => {
         const attackingPokemonHealth = attackingPlayer.activePokemon().health
         attackingPlayer.heal(Math.floor(Math.random() * 20) + 1)
-        optionsList.innerHTML = `<p>${attackingPlayer.activePokemon().name} heals for ${attackingPlayer.activePokemon().health - attackingPokemonHealth}!</p>`
+        optionsList.innerHTML = `<p id="fight-message">${attackingPlayer.activePokemon().name} heals for ${attackingPlayer.activePokemon().health - attackingPokemonHealth}!</p>`
         sleep(2000).then(()=> {
             battle(defendingPlayer, attackingPlayer)
         })    })
@@ -97,7 +97,7 @@ function endOfGame(winningPlayer, losingPlayer) {
 
 function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
-  }
+}
 
 // function endTurn(player1Turn, oneActivePokemon, twoActivePokemon, player1, player2){
 //     const currentPlayer = player1Turn ? player1 : player2
