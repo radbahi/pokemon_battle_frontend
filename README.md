@@ -4,6 +4,7 @@ Pokemon Battle is an ap that allows users to choose teams and have turn based Po
 
 [Back End Github](https://github.com/tdonovan79/pokemon-battle-backend)<br/>
 [Live App](https://tdonovan79.github.io/pokemon_battle_frontend/)
+[Video Demo](https://www.youtube.com/watch?v=5qEZd4CFnn8&feature=youtu.be)
 
 ## Features
   1. User login - When users enter their name to login, if the user has already been created, then they will be logged in as that user. If there is no user, matching that name, a new one will be created.
