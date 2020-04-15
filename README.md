@@ -3,7 +3,7 @@
 Pokemon Battle is an ap that allows users to choose teams and have turn based Pokemon battles with each other.
 
 [Back End Github](https://github.com/tdonovan79/pokemon-battle-backend)<br/>
-[Live App](https://tdonovan79.github.io/pokemon_battle_frontend/)
+[Live App](https://tdonovan79.github.io/pokemon_battle_frontend/)<br/>
 [Video Demo](https://www.youtube.com/watch?v=5qEZd4CFnn8&feature=youtu.be)
 
 ## Features
