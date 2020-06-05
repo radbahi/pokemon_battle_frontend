@@ -2,14 +2,13 @@ document.addEventListener("DOMContentLoaded", () =>{
     const startGame = document.createElement("button");
     const mainBody = document.querySelector("#main-body")
     startGame.id = "start-game-button"
-    startGame.innerText = ""
+    startGame.innerText = "Start"
     mainBody.append(startGame)
     startGame.addEventListener("click", () => {
         fetchPokemonList()
     })
 
 })
-const BASE_URL = 'https://pokemonbattle-api.herokuapp.com'
 
 const theme = document.createElement("audio")
 theme.src = `theme.mp3`
@@ -78,7 +77,7 @@ function runner(pokeData){
     }
     //grab user data from backend
     function getUser(username){
-        fetch(`${BASE_URL}/users`)
+        fetch('https://pokemon-battle-backend.herokuapp.com/users')
         .then((response) => {
             return response.json();
         })
@@ -96,7 +95,7 @@ function runner(pokeData){
     }
     //post to new user
     function createUser(nameInput){
-        fetch(`${BASE_URL}/users`, {
+        fetch('https://pokemon-battle-backend.herokuapp.com/users', {
         method: 'POST', // or 'PUT'
         headers: {
             'Content-Type': 'application/json',
@@ -112,6 +111,7 @@ function runner(pokeData){
     //render user info
     function renderUserInfo(){
         const userContainer = document.querySelector("#user-container")
+        console.log(currentUser)
         userContainer.innerHTML=`
             <h1>Logged in as: ${currentUser.name}</h1>
             <button id="logout">Logout</button>
@@ -131,7 +131,7 @@ function runner(pokeData){
                 teamContainer.append(pokeSpan)
                 const deleteButton = document.querySelector(`#delete-${pokemon.id}`)
                 deleteButton.addEventListener("click", () => {
-                    fetch(`${BASE_URL}/pokemons/${pokemon.id}`, {
+                    fetch(`https://pokemon-battle-backend.herokuapp.com/pokemons/${pokemon.id}`, {
                         method: 'delete'
                     }).then(response => response.json())
                     .then(data => {currentUser = getUser(currentUser.name)
@@ -187,18 +187,13 @@ function runner(pokeData){
         `
         const addTeamButton = document.querySelector("#add-to-team")
         addTeamButton.addEventListener("click", () =>{
-            if (currentUser.pokemons.length >= 3){
-                alert("Max team length is 3.")
-            }
-            else{
-                addPokemon(pokeInfo)
-            }
+            addPokemon(pokeInfo)
         })
     }
     //create new pokemon and add to trainer's team
     function addPokemon(pokeInfo){
-        console.log(pokeInfo)
-        fetch(`${BASE_URL}/pokemons`, {
+        
+        fetch('https://pokemon-battle-backend.herokuapp.com/pokemons', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
